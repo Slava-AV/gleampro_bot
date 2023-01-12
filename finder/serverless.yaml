@@ -1,0 +1,45 @@
+service: gleamprobot-finder
+# app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+stage: dev
+region: us-east-2
+plugins:
+  # - serverless-plugin-chrome
+  # - serverless-offline-scheduler
+package:
+  exclude:
+    - node_modules/**
+    - findGleams/node_modules/**
+    - parse_gleam/node_modules/**
+  excludeDevDependencies: true
+functions:
+  findGleams:
+    timeout: 30
+    role: arn:aws:iam::067342954645:role/GleamProBot
+    handler: findGleams/main.handler
+    layers:
+     - arn:aws:lambda:us-east-1:067342954645:layer:gleamProBot:1
+    events:
+     - http:
+         path: /findGleams
+         method: post
+         cors: true
+     - schedule: rate(5 minutes)
+  parse_gleam:
+    timeout: 30
+    role: arn:aws:iam::067342954645:role/GleamProBot
+    handler: parse_gleam/main.handler
+    layers:
+     - arn:aws:lambda:us-east-1:067342954645:layer:gleamProBot:1
+    events:
+     - http:
+         path: /parse_gleam
+         method: post
+         cors: true

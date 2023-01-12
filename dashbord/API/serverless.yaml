@@ -1,0 +1,97 @@
+service: gleamprobot-dashbord
+# app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+stage: dev
+region: us-east-2
+package:
+  exclude:
+      - query_gleams/node_modules/**
+      - update_gleam/node_modules/**
+      - query_users/node_modules/**
+      - update_user/node_modules/**
+  excludeDevDependencies: true
+functions:
+  admin_login:
+    timeout: 30
+    role: arn:aws:iam::067342954645:role/GleamProBot
+    handler: admin_login/main.handler
+    layers:
+     - arn:aws:lambda:us-east-1:067342954645:layer:gleamProBot:1
+    events:
+     - http:
+         path: /admin_login
+         method: post
+         cors: true
+  query_gleams:
+    timeout: 30
+    role: arn:aws:iam::067342954645:role/GleamProBot
+    handler: query_gleams/main.handler
+    layers:
+     - arn:aws:lambda:us-east-1:067342954645:layer:gleamProBot:1
+    events:
+     - http:
+         path: /query_gleams
+         method: post
+         cors: true
+  update_gleam:
+    timeout: 30
+    role: arn:aws:iam::067342954645:role/GleamProBot
+    handler: update_gleam/main.handler
+    layers:
+     - arn:aws:lambda:us-east-1:067342954645:layer:gleamProBot:1
+    events:
+     - http:
+         path: /update_gleam
+         method: post
+         cors: true
+  query_users:
+    timeout: 30
+    role: arn:aws:iam::067342954645:role/GleamProBot
+    handler: query_users/main.handler
+    layers:
+     - arn:aws:lambda:us-east-1:067342954645:layer:gleamProBot:1
+    events:
+     - http:
+         path: /query_users
+         method: post
+         cors: true
+  update_user:
+    timeout: 30
+    role: arn:aws:iam::067342954645:role/GleamProBot
+    handler: update_user/main.handler
+    layers:
+     - arn:aws:lambda:us-east-1:067342954645:layer:gleamProBot:1
+    events:
+     - http:
+         path: /update_user
+         method: post
+         cors: true
+  send_message_to_selected_users:
+    timeout: 30
+    role: arn:aws:iam::067342954645:role/GleamProBot
+    handler: send_message_to_selected_users/main.handler
+    layers:
+     - arn:aws:lambda:us-east-1:067342954645:layer:gleamProBot:1
+    events:
+     - http:
+         path: /send_message_to_selected_users
+         method: post
+         cors: true
+  query_result_subs:
+    timeout: 30
+    role: arn:aws:iam::067342954645:role/GleamProBot
+    handler: query_result_subs/main.handler
+    layers:
+     - arn:aws:lambda:us-east-1:067342954645:layer:gleamProBot:1
+    events:
+     - http:
+         path: /query_result_subs
+         method: post
+         cors: true

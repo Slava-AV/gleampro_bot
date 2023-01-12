@@ -1,0 +1,186 @@
+//@import '../bootstrap/css/bootstrap.min.css';
+// @import '../dashboard/sb-admin-2.min.css';
+
+// @font-face {
+//   font-family: 'comfortaa';
+//   // font-style: normal;
+//   font-weight: 400;
+//   // font-display: swap;
+//   src: url('~assets/fonts/Comfortaa-Regular.ttf') format('truetype');
+// }
+
+// @font-face {
+//   font-family: 'comfortaa';
+//   // font-style: normal;
+//   font-weight: 300;
+//   // font-display: swap;
+//   src: url('~assets/fonts/Comfortaa-Regular.ttf') format('truetype');
+// }
+
+// @font-face {
+//   font-family: 'comfortaa';
+//   // font-style: normal;
+//   font-weight: 600;
+//   // font-display: swap;
+//   src: url('~assets/fonts/Comfortaa-Bold.ttf') format('truetype');
+// }
+
+
+body {
+  font-family: 'Arial';
+  background-color: #eee;
+}
+
+.filter-box {
+  background: #eee;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.bg-primary {
+  background-color: #fece16 !important;
+}
+
+.sidebar .nav-item .nav-link {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  width: 14rem;
+}
+
+aside .section {
+  padding: 3rem 0 3rem 1.5rem !important;
+}
+
+aside hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  background: none;
+}
+
+#wrapper,
+#content-wrapper {
+  height: 100%;
+  min-height: 100vh;
+}
+
+.footer {
+  padding: 2rem 1.5rem 2rem;
+  margin-top: 1rem;
+}
+
+.topbar {
+  height: 4.375rem;
+}
+
+button {
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.justify-content-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.tag:not(body).is-danger.is-light {
+  border: 1px solid pink;
+}
+
+.text-primary {
+  color: #fece16 !important;
+}
+
+.b-table a {
+  color: #535151;
+  text-decoration: underline;
+}
+
+.fa-user.fas {
+  color: #FECE16;
+}
+
+.pagination-link.is-current {
+  background-color: #FECE16;
+  border-color: #FECE16;
+  color: #fff;
+}
+
+.fa.fa-star.text-primary {
+  color: #f2dd88 !important;
+}
+
+.is-orange {
+  background-color: #FECE16 !important;
+  border-color: transparent !important;
+  color: #fff !important;
+}
+
+.tags .has-addons .icon {
+  width: 30px !important;
+}
+
+a.tag.is-success.has-delete-icon {
+  width: 30px;
+  // color: #ffdd57;
+}
+
+.select select::placeholder,
+.taginput .taginput-container.is-focusable::placeholder,
+.textarea::placeholder,
+.input::placeholder {
+  color: rgb(54, 54, 54);
+}
+
+.b-table .table:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.main-content {
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-info .fa-circle {
+  color: #48c7749e !important;
+}
+
+.fa-circle {
+  font-size: 12px !important;
+}
+
+// .card-content {
+//   overflow-x: scroll;
+// }
+
+.bg-white {
+  background-color: #fff !important;
+}
+
+#content {
+  min-height: 100%;
+  margin-bottom: -90px;
+}
+
+table {
+  scrollbar-width: thin;
+}
+
+// .nuxt-link-prefetched {
+//   color: orangered;
+// }
+
+.input.is-small {
+  font-family: "comfortaa";
+}

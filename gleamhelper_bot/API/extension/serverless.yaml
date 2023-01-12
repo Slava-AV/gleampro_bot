@@ -1,0 +1,28 @@
+service: gleamhelper-extension
+# app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+stage: dev
+region: us-east-2
+package:
+  exclude:
+      # - add_metadata/node_modules/**
+  excludeDevDependencies: false
+functions:
+  extension_helper:
+    timeout: 60
+    role: arn:aws:iam::067342954645:role/GleamProBot
+    handler: extension_helper/main.handler
+    layers:
+     - arn:aws:lambda:us-east-1:067342954645:layer:gleamProBot:1
+    events:
+     - http:
+         path: /extension_helper
+         method: post
+         cors: true

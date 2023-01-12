@@ -1,0 +1,58 @@
+service: gleamprobot-bothelpers
+# app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+stage: dev
+region: us-east-2
+package:
+  exclude:
+      - save_new_user/node_modules/**
+      # - save_new_user_results/node_modules/**
+      - worker/node_modules/**
+  excludeDevDependencies: false
+functions:
+  save_new_user:
+    timeout: 60
+    role: arn:aws:iam::067342954645:role/GleamProBot
+    handler: save_new_user/main.handler
+    layers:
+     - arn:aws:lambda:us-east-1:067342954645:layer:gleamProBot:1
+    events:
+     - http:
+         path: /save_new_user
+         method: post
+         cors: true
+  save_new_user_results:
+    timeout: 60
+    role: arn:aws:iam::067342954645:role/GleamProBot
+    handler: save_new_user_results/main.handler
+    layers:
+     - arn:aws:lambda:us-east-1:067342954645:layer:gleamProBot:1
+    events:
+     - http:
+         path: /save_new_user_results
+         method: post
+         cors: true
+  worker:
+    timeout: 60
+    role: arn:aws:iam::067342954645:role/GleamProBot
+    handler: worker/main.handler
+    layers:
+     - arn:aws:lambda:us-east-1:067342954645:layer:gleamProBot:1
+  auto_twitter:
+    timeout: 60
+    role: arn:aws:iam::067342954645:role/GleamProBot
+    handler: auto_twitter/main.handler
+    layers:
+     - arn:aws:lambda:us-east-1:067342954645:layer:gleamProBot:1
+    events:
+     - http:
+         path: /auto_twitter
+         method: post
+         cors: true
