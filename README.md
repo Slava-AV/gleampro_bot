@@ -12,4 +12,6 @@ Be the first to receive notifications about Web3 events such as coin listings an
 
 Stack: `AWS Lambda, NodeJS, NuxtJS for admin dashboard`
 
+<img src="/img/gleampro_bot.jpg" style="width:188px;">
+
 `This is a copy of a private repository made for informational purposes. Some code is omitted.`
