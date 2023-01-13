@@ -6,6 +6,7 @@ Be the first to receive notifications about Web3 events such as coin listings an
 - Enrichment of events with details like the organizer's Twitter followers count.
 - Sending event notifications to users based on their preferences
 - Bot onboarding flow and configuration menu.
+- Multilingual UI
 - An admin dashboard for monitoring and managing events.
 - A Chrome extension for the admin to convert web pages into events.
 
